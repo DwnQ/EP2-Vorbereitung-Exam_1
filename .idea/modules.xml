@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/EP2-Vorbereitung-Exam_1.iml" filepath="$PROJECT_DIR$/.idea/EP2-Vorbereitung-Exam_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EP2_Test1_SS22/EP2_Test1_SS22.iml" filepath="$PROJECT_DIR$/EP2_Test1_SS22/EP2_Test1_SS22.iml" />
+      <module fileurl="file://$PROJECT_DIR$/probetest1A_former_semester/probetest1A_former_semester.iml" filepath="$PROJECT_DIR$/probetest1A_former_semester/probetest1A_former_semester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/probetest1B_former_semester/probetest1B_former_semester.iml" filepath="$PROJECT_DIR$/probetest1B_former_semester/probetest1B_former_semester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/probetest1_Mo/probetest1_Mo.iml" filepath="$PROJECT_DIR$/probetest1_Mo/probetest1_Mo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vta12121275/vta12121275.iml" filepath="$PROJECT_DIR$/vta12121275/vta12121275.iml" />
+    </modules>
+  </component>
+</project>
