@@ -48,7 +48,6 @@ public class PraxisTest1 {
         s4.add(r7); // 1/3
         s4.add(r2); // 1/2
         s4.add(r8); // 5/6
-        System.out.println(s4);
         testEquals(s4.removeMinimum(), r7);
         testEquals(s4.removeMinimum(), r2);
         testEquals(s4.removeMinimum(), r6);

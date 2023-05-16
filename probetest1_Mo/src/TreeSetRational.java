@@ -32,7 +32,7 @@ public class TreeSetRational
             return true;
         }
         //CASE 1: given r is bigger than value go left
-        if(root.compareTo(r)==-1){
+        if(root.compareTo(r)==1){
             if(left != null){
                 return left.add(r);
             }
@@ -41,7 +41,7 @@ public class TreeSetRational
             return true;
         }
         //CASE 2: given r is smaller than value go right
-        if(root.compareTo(r)==1){
+        if(root.compareTo(r)==-1){
             if(right != null){
                 return right.add(r);
             }
@@ -129,40 +129,39 @@ public class TreeSetRational
     // removed from this set or 'null' if this set is empty.
     // (The corresponding node is removed by replacing it with the subtree of the node that
     // contains entries greater than the minimum.)
+
     public Rational removeMinimum() {
+        if (root == null) {
+            return null; // Set is empty
+        }
+
+        // If the root has no left subtree, remove the root and update the tree
+        if (left == null) {
+            Rational removedNumber = root;
+            root = right != null ? right.root : null;
+            left = right != null ? right.left : null;
+            right = right != null ? right.right : null;
+            return removedNumber;
+        }
+
+        // If the root has a left subtree, remove the minimum element from the left subtree
         return removeLeft(this);
     }
-    public Rational removeLeft(TreeSetRational node) {
-        Rational temp = node.root;
 
-        if(temp!= null){
-            if(node.left!= null){
-                if(node.root.compareTo(node.left.root)<1){
-                    temp = node.root;
-                    System.out.println(temp);
-                    if(node.right != null){
-                        node.root = node.right.root;
-                        node.right = node.right.right != null ? node.right.right : null;
-                        if(node.right!= null){
-                            node.left = node.right.left != null ? node.right.left : null;
-                        }
-                    }
-                    return temp;
-
-                }else removeLeft(node.left);
-            }
-            temp = node.root; //Removed Element
-            if(node.right != null){
-                node.root = node.right.root;
-                node.right = node.right.right != null ? node.right.right : null;
-                if(node.right!= null){
-                    node.left = node.right.left != null ? node.right.left : null;
-                }
-            }
-            return temp;
+    private Rational removeLeft(TreeSetRational node) {
+        // Traverse to the leftmost node to find the minimum
+        while (node.left.left != null) {
+            node = node.left;
         }
-        return null;
+
+        Rational removedNumber = node.left.root;
+
+        // Replace the left node with its right subtree
+        node.left = node.left.right;
+
+        return removedNumber;
     }
+
 
     // Returns a string representation of 'this' with all rational objects
     // ordered ascending. The format of the string uses
@@ -182,10 +181,11 @@ public class TreeSetRational
     }
     public void appendToString(TreeSetRational node,StringBuilder string) {
         if(node!= null){
-            appendToString(node.right,string);
+            appendToString(node.left,string);
 
             string.append(node.root).append(", ");
-            appendToString(node.left,string);
+            appendToString(node.right,string);
+
 
         }
 
